@@ -1,13 +1,18 @@
 /* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
+export enum UserRole {
+    ADMIN = 'admin',
+    USER = 'user'
+}
+
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: number;
-    
+
     @Column()
-    name: string;
+    username: string;
 
     @Column({ unique: true })
     email: string;
@@ -15,6 +20,10 @@ export class User {
     @Column()
     password: string;
 
-    @Column({ type: 'enum', enum: ['admin', 'user'], default: 'user' })
+    @Column({
+        type: 'enum',
+        enum: UserRole,
+        default: UserRole.USER
+    })
     role: string;
 }
