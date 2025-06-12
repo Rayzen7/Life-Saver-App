@@ -4,6 +4,7 @@ import { UserService } from "src/user/user.service";
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from "@nestjs/jwt";
 import { AuthDto } from "./auth.dto";
+import { instanceToPlain } from "class-transformer";
 
 @Injectable()
 export class AuthService {
@@ -40,5 +41,10 @@ export class AuthService {
             message: "Login Success",
             user: user
         }
+    }
+
+    async me(id: number) {
+        const user = await this.userService.findOne(id);
+        return instanceToPlain(user);
     }
 }

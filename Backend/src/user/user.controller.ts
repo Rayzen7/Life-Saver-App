@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { UserDto } from "./user.dto";
 import { JwtAuthGuard } from "src/auth/jwt.guard";
@@ -56,13 +55,5 @@ export class UserController {
         return {
             message: "Delete User Success"
         }
-    }
-
-    @UseGuards(JwtAuthGuard)
-    @Get('/me')
-    async getProfile(@Req() req) {
-        const userId = req;
-        const user = await this.userService.findOne(userId)
-        return user;
     }
 }

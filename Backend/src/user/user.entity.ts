@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { NewsEntity } from "src/news/news.entity";
+import { Exclude } from "class-transformer";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
 
 export enum UserRole {
     ADMIN = 'admin',
@@ -8,7 +10,7 @@ export enum UserRole {
 }
 
 @Entity('users')
-export class User {
+export class UserEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -19,6 +21,7 @@ export class User {
     email: string;
 
     @Column()
+    @Exclude()
     password: string;
 
     @Column({ type: 'bigint' })
@@ -35,4 +38,7 @@ export class User {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    @OneToMany(() => NewsEntity, news => news.user)
+    news: NewsEntity[];
 }

@@ -2,18 +2,18 @@
 import { HttpException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { User } from "./user.entity";
+import { UserEntity } from "./user.entity";
 import { UserDto } from "./user.dto";
 import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(User)
-        private userRepo: Repository<User>,        
+        @InjectRepository(UserEntity)
+        private userRepo: Repository<UserEntity>,
     ) {}
 
-    async create(data: UserDto): Promise<User | undefined> {
+    async create(data: UserDto): Promise<UserEntity | undefined> {
         const existingUser = await this.userRepo.findOne({
             where: [{ email: data.email }]
         });
@@ -43,17 +43,22 @@ export class UserService {
         return savedUser;
     }
 
-    async findAll(): Promise<User[]> {
-        const user = await this.userRepo.find();
+    async findAll(): Promise<UserEntity[]> {
+        const user = await this.userRepo.find({
+            relations: ['news']
+        });
         return user;
     }
 
-    async findOne(id: number): Promise<User | null> {
-        const user = await this.userRepo.findOneBy({ id });
+    async findOne(id: number): Promise<UserEntity | null> {
+        const user = await this.userRepo.findOne({ 
+            where: { id },
+            relations: ['news']
+         });
         return user;
     }
 
-    async update(id: number, data: Partial<UserDto>): Promise<User | null> {
+    async update(id: number, data: Partial<UserDto>): Promise<UserEntity | null> {
         const existingUser = await this.userRepo.findOne({
             where: [{ email: data.email }]
         });
@@ -82,7 +87,7 @@ export class UserService {
         await this.userRepo.delete(id);
     }
 
-    async findByEmail(email: string): Promise<User | null> {
+    async findByEmail(email: string): Promise<UserEntity | null> {
         const user = await this.userRepo.findOne({
             where: [{ email }]
         });
