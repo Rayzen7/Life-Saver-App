@@ -2,6 +2,8 @@
 import { NewsEntity } from "src/news/news.entity";
 import { Exclude } from "class-transformer";
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
+import { ProductEntity } from "src/product/product.entity";
+import { TransactionEntity } from "src/transaction/transaction.entity";
 
 export enum UserRole {
     ADMIN = 'admin',
@@ -41,4 +43,10 @@ export class UserEntity {
 
     @OneToMany(() => NewsEntity, news => news.user)
     news: NewsEntity[];
+
+    @OneToMany(() => ProductEntity, product => product.user)
+    product: ProductEntity[]
+
+    @OneToMany(() => TransactionEntity, transaction => transaction.user)
+    transaction: TransactionEntity[]
 }

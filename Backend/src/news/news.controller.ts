@@ -40,7 +40,7 @@ export class NewsController {
 
     @Get('/:id')
     async findOne(@Param('id') id: number) {
-        return this.newsService.findById(id);
+        return this.newsService.findOne(id);
     }
 
     @UseInterceptors(FileInterceptor('image', {

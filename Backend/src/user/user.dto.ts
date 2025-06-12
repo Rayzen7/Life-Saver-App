@@ -14,12 +14,12 @@ export class UserDto {
     @MinLength(6)
     password: string;
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsNumber()
-    nik: number;
+    nik?: number;
 
-    @IsNotEmpty()
-    phone: string
+    @IsOptional()
+    phone?: string
 
     @IsOptional()
     @IsEnum(UserRole)

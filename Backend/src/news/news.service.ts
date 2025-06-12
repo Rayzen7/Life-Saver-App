@@ -30,22 +30,17 @@ export class NewsService {
             desc: data.desc,
             image: file.filename,
             link: data.link,
-            user: { id: user_id }
+            user_id: user_id
         });
 
-        await this.newsRepo.save(newNews);
-        const newsCreated = await this.newsRepo.findOne({
-            where: { id: newNews.id },
-            relations: ['user']
-        });
-
+        const news = await this.newsRepo.save(newNews);        
         return {
             message: 'Create News Succss',
-            news: newsCreated,
+            news: news,
         }
     }
 
-    async findById(id: number): Promise<{ news: NewsEntity | null }> {
+    async findOne(id: number): Promise<{ news: NewsEntity | null }> {
         const news = await this.newsRepo.findOne({
             where: { id },
             relations: ['user'],

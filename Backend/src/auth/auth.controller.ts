@@ -25,9 +25,7 @@ export class AuthController {
     async me(@Req() req: any) {
         const id = await req.user.id;
         const user = await this.authService.me(id);
-        return {
-            user: user
-        }
+        return user;
     }
 
     @Post('/logout')

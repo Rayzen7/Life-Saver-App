@@ -13,7 +13,7 @@ export class UserService {
         private userRepo: Repository<UserEntity>,
     ) {}
 
-    async create(data: UserDto): Promise<UserEntity | undefined> {
+    async create(data: UserDto): Promise<{ message: string, user: UserEntity | undefined }> {
         const existingUser = await this.userRepo.findOne({
             where: [{ email: data.email }]
         });
@@ -40,25 +40,32 @@ export class UserService {
         });
 
         const savedUser = await this.userRepo.save(newUser);
-        return savedUser;
+        return {
+            message: 'Register Success',
+            user: savedUser
+        };
     }
 
-    async findAll(): Promise<UserEntity[]> {
+    async findAll(): Promise<{ user: UserEntity[] }> {
         const user = await this.userRepo.find({
-            relations: ['news']
+            relations: ['news', 'product', 'transaction']
         });
-        return user;
+        return {
+            user: user,
+        };
     }
 
-    async findOne(id: number): Promise<UserEntity | null> {
+    async findOne(id: number): Promise<{ user: UserEntity | null }> {
         const user = await this.userRepo.findOne({ 
             where: { id },
-            relations: ['news']
+            relations: ['news', 'product', 'transaction']
          });
-        return user;
+        return {
+            user: user
+        };
     }
 
-    async update(id: number, data: Partial<UserDto>): Promise<UserEntity | null> {
+    async update(id: number, data: Partial<UserDto>): Promise<{ message: string, user: UserEntity | null }> {
         const existingUser = await this.userRepo.findOne({
             where: [{ email: data.email }]
         });
@@ -79,12 +86,21 @@ export class UserService {
         }
 
         await this.userRepo.update(id, data);
-        const user = this.userRepo.findOneBy({ id });
-        return user;
+        const user = await this.userRepo.findOne({ 
+            where: { id: id }
+         });
+
+        return {
+            message: "Update User Success",
+            user: user,
+        };
     }
 
-    async remove(id: number): Promise<void> {
+    async remove(id: number): Promise<{ message: string }> {
         await this.userRepo.delete(id);
+        return {
+            message: "Delete User Success"
+        }
     }
 
     async findByEmail(email: string): Promise<UserEntity | null> {

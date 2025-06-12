@@ -8,6 +8,9 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { NewsModule } from './news/news.module';
+import { CategoryModule } from './category/category.module';
+import { ProductModule } from './product/product.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -28,7 +31,10 @@ import { NewsModule } from './news/news.module';
     }),
     UserModule,
     AuthModule,
-    NewsModule
+    NewsModule,
+    CategoryModule,
+    ProductModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
