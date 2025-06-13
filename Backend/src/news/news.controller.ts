@@ -17,6 +17,7 @@ export class NewsController {
     ) {}
 
     @Get()
+    @UseGuards(JwtAuthGuard)
     async findAll() {
         return this.newsService.findAll();
     }
@@ -39,6 +40,7 @@ export class NewsController {
     }
 
     @Get('/:id')
+    @UseGuards(JwtAuthGuard)
     async findOne(@Param('id') id: number) {
         return this.newsService.findOne(id);
     }
