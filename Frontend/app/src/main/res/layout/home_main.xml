@@ -20,9 +20,10 @@
         app:menu="@menu/bottom_navbar"
         app:labelVisibilityMode="labeled"
         android:background="@color/white"
-        app:itemIconTint="@color/primary"
-        app:itemTextColor="@color/primary"
-        app:itemBackground="@drawable/nav_item_background"
-        app:itemIconSize="22dp" />
+        app:itemIconTint="@color/nav_item_background"
+        app:itemTextColor="@color/nav_item_background"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconSize="24dp"
+        app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"/>
 
 </LinearLayout>
