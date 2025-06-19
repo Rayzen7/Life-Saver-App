@@ -34,9 +34,9 @@ export class UserService {
             username: data.username,
             email: data.email,
             password: hashedPassword,
-            nik: data.nik,
-            phone: data.phone,
-            role: data.role
+            // nik: null,
+            // phone: null,
+            // role: null
         });
 
         const savedUser = await this.userRepo.save(newUser);

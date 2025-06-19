@@ -1,56 +1,88 @@
 package com.example.lifesaver
 
-import android.content.Context
 import android.content.Intent
-import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import java.net.HttpURLConnection
+import androidx.lifecycle.lifecycleScope
+import com.example.lifesaver.api.HttpHandler
+import com.example.lifesaver.api.local.Helper
+import com.example.lifesaver.api.local.MySharedPreference
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 class MainLogin : AppCompatActivity() {
+
+    lateinit var emailInput: EditText
+    lateinit var passwordInput: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.login_main)
 
         val registerBtn = findViewById<Button>(R.id.registerBtn)
-        val loginSuccess = findViewById<Button>(R.id.loginSuccess)
+        val loginBtn = findViewById<Button>(R.id.loginSuccess)
+        emailInput = findViewById(R.id.emailInput)
+        passwordInput = findViewById(R.id.passwordInput)
 
         registerBtn.setOnClickListener({
             val intent = Intent(this, MainRegister::class.java)
             startActivity(intent)
         })
 
-        loginSuccess.setOnClickListener({
-            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
-
-            Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, MainOnboarding::class.java)
-                startActivity(intent)
-                finish()
-            }, 2000)
+        loginBtn.setOnClickListener({
+            loginPost()
         })
     }
-}
 
-object PostLogin {
-    fun postLogin(context: Context, name: String, password: String) {
-        val handler = Handler(Looper.getMainLooper())
+    fun loginPost() {
+        if (emailInput.text.toString() == "" || passwordInput.text.toString() == "") {
+            Toast.makeText(this, "Username / Password must be Required", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        Thread {
-            try {
+        try {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val json = JSONObject().apply {
+                    put("email", emailInput.text.toString())
+                    put("password", passwordInput.text.toString())
+                }
 
-            } catch (e: Exception) {
+                val response = HttpHandler().request("/auth/login", "POST", null, json.toString())
+                val jsonBody = JSONObject(response.body)
+                val message = jsonBody.getString("message")
 
+                if (response.code in 200..300) {
+                    val user = jsonBody.getJSONObject("user")
+                    val token = jsonBody.getString("access_token")
+
+                    withContext(Dispatchers.Main) {
+                        MySharedPreference.saveToken(this@MainLogin, token)
+                        Toast.makeText(this@MainLogin, message.toString(), Toast.LENGTH_SHORT).show()
+
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val intent = Intent(this@MainLogin, MainOnboarding::class.java)
+                            startActivity(intent)
+                            finish()
+                        }, 2000)
+                    }
+                } else {
+                    withContext(Dispatchers.Main) {
+                        Helper.showToast(this@MainLogin, message)
+                    }
+                }
             }
+        } catch (e: Exception) {
+            Helper.log(e.message!!)
+            Helper.showToast(this@MainLogin, "Error : ${e.message}")
         }
     }
 }

@@ -26,10 +26,10 @@ export class UserEntity {
     @Exclude()
     password: string;
 
-    @Column({ type: 'bigint' })
+    @Column({ type: 'bigint', nullable: true })
     nik: number;
 
-    @Column()
+    @Column({ nullable: true })
     phone: string;
 
     @Column({ type: 'enum', enum: UserRole, default: UserRole.USER })

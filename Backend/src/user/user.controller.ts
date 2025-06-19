@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { UserDto } from "./user.dto";
@@ -7,7 +6,9 @@ import { JwtAuthGuard } from "src/auth/jwt.guard";
 
 @Controller('/users')
 export class UserController {
-    constructor(private readonly userService: UserService) {}
+    constructor(
+        private readonly userService: UserService
+    ) {}
 
     @Post()
     @HttpCode(201)

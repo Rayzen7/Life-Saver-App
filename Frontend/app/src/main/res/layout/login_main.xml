@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="Name"
+                    android:hint="Email"
                     app:hintEnabled="false"
                     app:boxStrokeColor="@color/primary"
                     app:boxStrokeWidth="2dp"
@@ -105,11 +105,12 @@
                     android:textColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
-                        android:hint="Name"
-                        android:inputType="textPersonName"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
                         android:paddingVertical="12dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
@@ -147,6 +148,7 @@
                     app:boxCornerRadiusBottomEnd="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
