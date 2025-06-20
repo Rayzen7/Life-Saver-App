@@ -33,10 +33,7 @@ export class UserService {
         const newUser = this.userRepo.create({
             username: data.username,
             email: data.email,
-            password: hashedPassword,
-            // nik: null,
-            // phone: null,
-            // role: null
+            password: hashedPassword
         });
 
         const savedUser = await this.userRepo.save(newUser);
