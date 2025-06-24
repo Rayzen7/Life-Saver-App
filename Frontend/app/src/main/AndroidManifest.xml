@@ -15,7 +15,7 @@
         tools:targetApi="31"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainHome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,8 @@
         <activity android:name=".MainLogin"/>
         <activity android:name=".MainRegister"/>
         <activity android:name=".MainOnboarding"/>
-        <activity android:name=".MainHome"/>
+<!--        <activity android:name=".MainHome"/>-->
+        <activity android:name=".DetailNews"/>
     </application>
 
 </manifest>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/primary"
+            android:paddingHorizontal="32dp"
+            android:gravity="center"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/back_icon"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:src="@drawable/logo1"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ask_icon"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tingkatkan Layanan Kesehatan Masyarakat, Pemdakab Bogor Gelar Rakor Kesmas"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:textAlignment="center"/>
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:src="@drawable/news"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tingkatkan layanan dan derajat kesehatan masyarakat, Pemerintah Daerah Kabupaten (Pemdakab) Bogor melakukan Rapat Koordinasi Bidang Kesehatan Masyarakat (Kesmas) mengenai Publikasi Status Gizi Balita Tahun 2023 di Bigland Hotel, Babakan Madang, Senin (9/10/23 ).\n\n Aspem Kesra Kabupaten Bogor, Hadijana mengungkapkan, meningkatkan derajat kesehatan masyarakat melalui peningkatan status gizi dan kesehatan ibu dan anak, penurunan stunting, menurunkan angka kematian ibu dan anak serta menurunkan penyakit tidak menular."
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12sp"
+                android:justificationMode="inter_word"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:cornerRadius="8dp"
+                android:layout_gravity="center"
+                android:text="News Detail"
+                android:backgroundTint="@color/primary"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

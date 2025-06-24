@@ -13,7 +13,7 @@ export class NewsEntity {
     @Column()
     name: string;
 
-    @Column()
+    @Column({ type: "text" })
     desc: string;
 
     @Column()

@@ -2,10 +2,12 @@ package com.example.lifesaver
 
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,15 +15,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.lifesaver.api.HttpHandler
 import com.example.lifesaver.api.adapter.ProductAdapter
 import com.example.lifesaver.api.model.Product
-import org.json.JSONArray
 import org.json.JSONObject
-import java.util.logging.Handler
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var viewPager: ViewPager2
     private val handler = android.os.Handler(Looper.getMainLooper())
     private var currentPage = 0
     private lateinit var imageList: List<Int>
+
     private lateinit var productRecyclerView: RecyclerView
     private val productList = mutableListOf<Product>()
 
@@ -51,6 +52,31 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val searchEditText = view.findViewById<EditText>(R.id.searchEditText)
+        val bottomNav = requireActivity().findViewById<View>(R.id.bottomNavigationView)
+
+        searchEditText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                bottomNav.visibility = View.GONE
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                bottomNav.visibility = View.GONE
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                bottomNav.visibility = View.GONE
+            }
+        })
+
+        searchEditText.setOnFocusChangeListener {_, hasFocus ->
+            if (hasFocus) {
+                bottomNav.visibility = View.GONE
+            } else {
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
 
         viewPager = view.findViewById(R.id.imageSLider)
         imageList = listOf(R.drawable.about_image1, R.drawable.about_image2, R.drawable.about_image3)

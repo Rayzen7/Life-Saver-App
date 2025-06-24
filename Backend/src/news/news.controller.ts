@@ -17,7 +17,6 @@ export class NewsController {
     ) {}
 
     @Get()
-    @UseGuards(JwtAuthGuard)
     async findAll() {
         return this.newsService.findAll();
     }

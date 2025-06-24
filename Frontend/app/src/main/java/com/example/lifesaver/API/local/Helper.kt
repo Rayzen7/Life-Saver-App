@@ -45,4 +45,12 @@ object Helper {
         val format = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
         return format.format(amount).replace(",00", "")
     }
+
+    fun formatDate(dateString: String): String {
+        return try {
+            dateString.substring(0, 10)
+        } catch (e: Exception) {
+            dateString
+        }
+    }
 }
