@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.lifesaver.api.HttpHandler
 import com.example.lifesaver.api.adapter.ProductAdapter
+import com.example.lifesaver.api.local.MySharedPreference
 import com.example.lifesaver.api.model.Product
 import org.json.JSONObject
 
@@ -25,6 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var productRecyclerView: RecyclerView
     private val productList = mutableListOf<Product>()
+    private lateinit var homeName: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +39,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         productRecyclerView = view.findViewById(R.id.productAll)
         productRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
+        homeName = view.findViewById(R.id.homeName)
         fetchProduct()
+        fetchMe()
 
         return view
     }
@@ -116,6 +122,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                 requireActivity().runOnUiThread {
                     productRecyclerView.adapter = ProductAdapter(productList)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }.start()
+    }
+
+    fun fetchMe() {
+        Thread {
+            try {
+                val username = MySharedPreference.getUser(requireContext())
+                requireActivity().runOnUiThread {
+                    homeName.text = "Hi, ${username}"
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

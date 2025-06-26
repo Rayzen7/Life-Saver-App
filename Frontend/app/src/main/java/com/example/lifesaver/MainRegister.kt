@@ -27,6 +27,8 @@ class MainRegister : AppCompatActivity() {
         setContentView(R.layout.register_main)
 
         val registerBtn = findViewById<Button>(R.id.registerBtn)
+        val loginBtn = findViewById<Button>(R.id.loginBtn)
+
         usernameInput = findViewById(R.id.usernameInput)
         emailInput = findViewById(R.id.emailInput)
         passwordInput = findViewById(R.id.passwordInput)
@@ -34,6 +36,12 @@ class MainRegister : AppCompatActivity() {
         registerBtn.setOnClickListener({
             registerPost()
         })
+
+        loginBtn.setOnClickListener {
+            val intent = Intent(this@MainRegister, MainLogin::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun registerPost() {

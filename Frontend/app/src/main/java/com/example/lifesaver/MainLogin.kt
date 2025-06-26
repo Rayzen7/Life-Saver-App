@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -61,11 +62,16 @@ class MainLogin : AppCompatActivity() {
                 val message = jsonBody.getString("message")
 
                 if (response.code in 200..300) {
-                    val user = jsonBody.getJSONObject("user")
                     val token = jsonBody.getString("access_token")
+
+                    val response = HttpHandler().request("/auth/me", "GET", token)
+                    val jsonObject = JSONObject(response.body)
+                    val user = jsonObject.getJSONObject("user")
+                    val username = user.getString("username")
 
                     withContext(Dispatchers.Main) {
                         MySharedPreference.saveToken(this@MainLogin, token)
+                        MySharedPreference.saveUser(this@MainLogin, username)
                         Toast.makeText(this@MainLogin, message.toString(), Toast.LENGTH_SHORT).show()
 
                         Handler(Looper.getMainLooper()).postDelayed({

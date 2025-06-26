@@ -39,7 +39,6 @@ export class NewsController {
     }
 
     @Get('/:id')
-    @UseGuards(JwtAuthGuard)
     async findOne(@Param('id') id: number) {
         return this.newsService.findOne(id);
     }

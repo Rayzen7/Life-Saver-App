@@ -26,4 +26,20 @@ object MySharedPreference {
             apply()
         }
     }
+
+    val user = "user"
+    val sharedUser = "sharedUser"
+
+    fun saveUser(context: Context, username: String) {
+        val shared = context.getSharedPreferences(sharedUser, Context.MODE_PRIVATE)
+        with(shared.edit()) {
+            putString(user, username)
+            apply()
+        }
+    }
+
+    fun getUser(context: Context): String? {
+        val shared = context.getSharedPreferences(sharedUser, Context.MODE_PRIVATE)
+        return shared.getString(user, null)
+    }
 }

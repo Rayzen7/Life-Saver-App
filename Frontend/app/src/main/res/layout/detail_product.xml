@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/back_black_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:src="@drawable/panadol_hijau" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Panadol Hijau"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="26sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Per Strip"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/cart_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Very Quality"
+                        android:layout_marginLeft="12dp"
+                        android:textColor="@color/primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 15.000"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="28sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/offer_product_1"/>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/offer_product_2"/>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/offer_product_3"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:layout_marginTop="10dp"
+                            android:textSize="24sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Panadol Hijau merupakan obat batuk dan pereda flu dengan kandungan Paracetamol, Phenylephrine HCI, dan Dextromethorphan HBr. Bekerja sebagai analgesik-antipiretik, masal dekongestan, dan antitusif. Obat ini dapat digunakan untuk meredakan gejala flu seperti: demam, sakit kepala, hidung tersumbat dan batuk tidak berdahak."
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_marginTop="10dp"
+                            android:textSize="14sp"
+                            android:justificationMode="inter_word"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
