@@ -17,6 +17,9 @@ export class NewsService {
     async findAll(): Promise<{ news: NewsEntity[] }> {
         const news = await this.newsRepo.find({
             relations: ['user'],
+            order: {
+                created_at: "DESC"
+            }
         });
 
         return {

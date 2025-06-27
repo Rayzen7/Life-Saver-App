@@ -32,6 +32,7 @@
         <activity android:name=".ProductAll"/>
         <activity android:name=".MainTransactionAddress"/>
         <activity android:name=".MainTransactionPayment"/>
+        <activity android:name=".SuccessTransaction"/>
     </application>
 
 </manifest>

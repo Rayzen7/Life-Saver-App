@@ -32,6 +32,8 @@ class DetailProduct : AppCompatActivity() {
     private lateinit var quantityMinBtn: ImageView
     var quantity: Int = 0
     var price: Int = 0
+    var productNamePut: String = ""
+    var productIdPut: Int = 0
 
     private lateinit var productImage: ImageView
     private lateinit var productName: TextView
@@ -86,6 +88,8 @@ class DetailProduct : AppCompatActivity() {
         buyBtn.setOnClickListener() {
             if (overlayBlocker.visibility == View.VISIBLE) {
                 val intent = Intent(this@DetailProduct, MainTransactionAddress::class.java)
+                intent.putExtra("id", productIdPut)
+                intent.putExtra("name", productNamePut)
                 intent.putExtra("quantity", quantity)
                 intent.putExtra("total", quantity * price)
                 startActivity(intent)
@@ -172,7 +176,10 @@ class DetailProduct : AppCompatActivity() {
                     productDosis.text = product.dosis
                     productCategory.text = product.category
                     productPrice.text = Helper.formatRupiah(product.price)
+
+                    productIdPut = product.id
                     price = product.price
+                    productNamePut = product.name
 
                     productPaymentName.text = product.name
                     Helper.ImageHelper.loadImageFromUrl(productPaymentImage, "product/" + product.image)

@@ -25,6 +25,8 @@ class MainTransactionAddress : AppCompatActivity() {
 
         val productQuantity = intent.getIntExtra("quantity", -1)
         val productTotal = intent.getIntExtra("total", -1)
+        val productName = intent.getStringExtra("name")
+        val productId = intent.getIntExtra("id", -1)
 
         backBtn = findViewById(R.id.transactionAddressBackBtn)
         nextBtn = findViewById(R.id.transactionAddressBtnNext)
@@ -44,9 +46,11 @@ class MainTransactionAddress : AppCompatActivity() {
             }
 
             val intent = Intent(this@MainTransactionAddress, MainTransactionPayment::class.java)
-            intent.putExtra("address", userAddress.text)
+            intent.putExtra("address", userAddress.text.toString())
             intent.putExtra("quantity", productQuantity)
             intent.putExtra("total", productTotal)
+            intent.putExtra("name", productName)
+            intent.putExtra("id", productId)
             startActivity(intent)
         }
     }
