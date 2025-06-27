@@ -10,7 +10,7 @@ export class TransactionDto {
     status: TransactionStatus
 
     @IsNotEmpty()
-    information: string;
+    address: string;
 
     @IsNotEmpty()
     quantity: number;

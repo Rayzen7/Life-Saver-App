@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,20 +39,6 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
         val searchEditText = view.findViewById<EditText>(R.id.searchEditText)
         val bottomNav = requireActivity().findViewById<View>(R.id.bottomNavigationView)
-
-        searchEditText.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                bottomNav.visibility = View.GONE
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                bottomNav.visibility = View.GONE
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                bottomNav.visibility = View.GONE
-            }
-        })
 
         searchEditText.setOnFocusChangeListener {_, hasFocus ->
             if (hasFocus) {

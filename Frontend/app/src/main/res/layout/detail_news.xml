@@ -61,7 +61,8 @@
                 android:text="Tingkatkan Layanan Kesehatan Masyarakat, Pemdakab Bogor Gelar Rakor Kesmas"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="18sp"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textColor="@color/black"/>
 
             <ImageView
                 android:id="@+id/newsDetailImage"
@@ -79,7 +80,8 @@
                 android:text="Tingkatkan layanan dan derajat kesehatan masyarakat, Pemerintah Daerah Kabupaten (Pemdakab) Bogor melakukan Rapat Koordinasi Bidang Kesehatan Masyarakat (Kesmas) mengenai Publikasi Status Gizi Balita Tahun 2023 di Bigland Hotel, Babakan Madang, Senin (9/10/23 ).\n\n Aspem Kesra Kabupaten Bogor, Hadijana mengungkapkan, meningkatkan derajat kesehatan masyarakat melalui peningkatan status gizi dan kesehatan ibu dan anak, penurunan stunting, menurunkan angka kematian ibu dan anak serta menurunkan penyakit tidak menular."
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="12sp"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word"
+                android:textColor="@color/black"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/newsDetailLink"

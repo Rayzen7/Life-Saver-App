@@ -1,140 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:ignore="SpeakableTextPresentCheck">
+    tools:ignore="SpeakableTextPresentCheck"
+    android:background="@color/black">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/backgroundProductDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="60dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/back_black_icon" />
-
-        </LinearLayout>
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="22dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:src="@drawable/panadol_hijau" />
+            android:paddingBottom="120dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="60dp"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Panadol Hijau"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="26sp"/>
+                <ImageView
+                    android:id="@+id/backDetailProductBtn"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/back_black_icon" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Per Strip"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textSize="20sp"/>
+            </LinearLayout>
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="22dp">
+
+                <ImageView
+                    android:id="@+id/productDetailImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
-                        android:src="@drawable/cart_icon"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Very Quality"
-                        android:layout_marginLeft="12dp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textSize="18sp"/>
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rp 15.000"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:layout_marginTop="10dp"
-                    android:textSize="28sp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="110dp"
-                        android:src="@drawable/offer_product_1"/>
-
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="110dp"
-                        android:src="@drawable/offer_product_2"/>
-
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="110dp"
-                        android:src="@drawable/offer_product_3"/>
-
-                </LinearLayout>
+                    android:layout_height="220dp"
+                    android:src="@drawable/panadol_hijau" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/productDetailName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Panadol Hijau"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="26sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/productDetailCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Per Strip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/cart_icon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Very Quality"
+                            android:layout_marginLeft="12dp"
+                            android:textColor="@color/primary"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/productDetailPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 15.000"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_marginTop="10dp"
+                        android:textSize="28sp"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:src="@drawable/offer_product_1"/>
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:src="@drawable/offer_product_2"/>
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:src="@drawable/offer_product_3"/>
+
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Description"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:layout_marginTop="10dp"
-                            android:textSize="24sp"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Description"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_marginTop="10dp"
+                                android:textSize="24sp"
+                                android:textColor="@color/black"/>
+
+                            <TextView
+                                android:id="@+id/productDetailDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Panadol Hijau merupakan obat batuk dan pereda flu dengan kandungan Paracetamol, Phenylephrine HCI, dan Dextromethorphan HBr. Bekerja sebagai analgesik-antipiretik, masal dekongestan, dan antitusif. Obat ini dapat digunakan untuk meredakan gejala flu seperti: demam, sakit kepala, hidung tersumbat dan batuk tidak berdahak."
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="10dp"
+                                android:textSize="14sp"
+                                android:justificationMode="inter_word"
+                                android:textColor="@color/black"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Panadol Hijau merupakan obat batuk dan pereda flu dengan kandungan Paracetamol, Phenylephrine HCI, dan Dextromethorphan HBr. Bekerja sebagai analgesik-antipiretik, masal dekongestan, dan antitusif. Obat ini dapat digunakan untuk meredakan gejala flu seperti: demam, sakit kepala, hidung tersumbat dan batuk tidak berdahak."
-                            android:fontFamily="@font/poppins_medium"
-                            android:layout_marginTop="10dp"
-                            android:textSize="14sp"
-                            android:justificationMode="inter_word"/>
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dosis"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_marginTop="4dp"
+                                android:textSize="24sp"
+                                android:textColor="@color/black"/>
+
+                            <TextView
+                                android:id="@+id/productDetailDosis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dewasa: 1 kaplet 3 kali sehari Jangan melebihi 8 kaplet dalam tiap jangka waktu 24 jam. Jangan diberikan kepada anak-anak di bawah umur 12 tahun, kecuali atas petunjuk dokter."
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="4dp"
+                                android:textSize="14sp"
+                                android:justificationMode="inter_word"
+                                android:textColor="@color/black"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -144,6 +195,158 @@
 
         </LinearLayout>
 
+    </ScrollView>
+
+    <View
+        android:id="@+id/productDetailOverlayBlocker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/buyBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_top"
+        android:gravity="center"
+        android:paddingHorizontal="42dp"
+        android:paddingVertical="20dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/productDetailPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp"
+            android:translationY="300dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/productDetailImagePayment"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/panadol_hijau" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp">
+
+                    <TextView
+                        android:id="@+id/productDetailNamePayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Panadol Hijau"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/productDetailPricePayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 15.000"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity :"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/quantityMinBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/minus_icon"/>
+
+                    <TextView
+                        android:id="@+id/quantityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:layout_marginHorizontal="16dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/quantityPlusBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/plus_icon"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/detailProductCart"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cart_border_icon"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/detailProductBuyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy Now"
+                android:textSize="16dp"
+                app:cornerRadius="8dp"
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:backgroundTint="@color/primary"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

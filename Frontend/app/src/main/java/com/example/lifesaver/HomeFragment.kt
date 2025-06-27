@@ -1,5 +1,6 @@
 package com.example.lifesaver
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Looper
 import android.text.Editable
@@ -8,7 +9,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,7 +31,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var productRecyclerView: RecyclerView
     private val productList = mutableListOf<Product>()
+
     private lateinit var homeName: TextView
+    private lateinit var drugBtn: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +45,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         productRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
         homeName = view.findViewById(R.id.homeName)
+        drugBtn = view.findViewById(R.id.drugBtn)
+
+        drugBtn.setOnClickListener {
+            val intent = Intent(requireContext(), ProductAll::class.java)
+            startActivity(intent)
+        }
+
         fetchProduct()
         fetchMe()
 
@@ -104,6 +116,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 val jsonArray = jsonObject.getJSONArray("product")
 
                 for (i in 0 until jsonArray.length()) {
+                    if (i == 4) break
+
                     val item = jsonArray.getJSONObject(i)
                     productList.add(
                         Product(
@@ -121,7 +135,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
 
                 requireActivity().runOnUiThread {
-                    productRecyclerView.adapter = ProductAdapter(productList)
+                    productRecyclerView.adapter = ProductAdapter(productList) { productItem ->
+                        val intent = Intent(requireContext(), DetailProduct::class.java)
+                        intent.putExtra("product_id", productItem.id)
+                        startActivity(intent)
+                    }
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

@@ -27,7 +27,7 @@ export class TransactionService {
             user_id: user_id,
             product_id: data.product_id,
             status: data.status,
-            information: data.information,
+            address: data.address,
             quantity: data.quantity,
             total: data.total,
         });
@@ -74,7 +74,7 @@ export class TransactionService {
             user_id: user_id,
             product_id: data.product_id,
             status: data.status,
-            information: data.information,
+            address: data.address,
             quantity: data.quantity,
             total: data.total
         });

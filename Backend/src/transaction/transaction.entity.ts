@@ -24,7 +24,7 @@ export class TransactionEntity {
     status: TransactionStatus;
 
     @Column()
-    information: string;
+    address: string;
 
     @Column({ type: 'bigint' })
     quantity: number;
