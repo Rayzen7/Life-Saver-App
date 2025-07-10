@@ -11,6 +11,7 @@ import { NewsModule } from './news/news.module';
 import { CategoryModule } from './category/category.module';
 import { ProductModule } from './product/product.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { DoctorModule } from './doctor/doctor.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { TransactionModule } from './transaction/transaction.module';
     CategoryModule,
     ProductModule,
     TransactionModule,
+    DoctorModule
   ],
   controllers: [AppController],
   providers: [AppService],
