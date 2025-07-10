@@ -31,6 +31,7 @@ class MainHome : AppCompatActivity() {
             val selectedFragment = when (item.itemId) {
                 R.id.nav_home -> HomeFragment()
                 R.id.nav_news -> NewsFragment()
+                R.id.nav_history -> HistoryFragment()
                 else -> null
             }
 
