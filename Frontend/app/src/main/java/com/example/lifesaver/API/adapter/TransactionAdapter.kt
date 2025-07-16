@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lifesaver.R
+import com.example.lifesaver.api.local.Helper
 import com.example.lifesaver.api.model.Transaction
 
 class TransactionAdapter(private val transaction: List<Transaction>, private val onItemClick: (Transaction) -> Unit) : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
@@ -25,9 +26,9 @@ class TransactionAdapter(private val transaction: List<Transaction>, private val
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transactionItem = transaction[position]
-        holder.name.text = transactionItem.product?.name;
+        holder.name.text = transactionItem.product.getString("name");
         holder.createdAt.text = transactionItem.created_at.toString();
-        holder.price.text = transactionItem.quantity.toString();
+        holder.price.text = "-" + Helper.formatRupiah(transactionItem.total);
 
         holder.historyBtn.setOnClickListener() {
             onItemClick(transactionItem)

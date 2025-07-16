@@ -15,8 +15,9 @@ export class TransactionController {
 
     @Get()
     @UseGuards(JwtAuthGuard)
-    async findAll() {
-        const transaction = await this.transactionService.findAll();
+    async findAll(@Req() req: any) {
+        const user_id = req.user.id;
+        const transaction = await this.transactionService.findAll(user_id);
         return transaction;
     }
 

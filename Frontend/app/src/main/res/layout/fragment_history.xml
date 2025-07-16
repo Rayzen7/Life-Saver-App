@@ -69,7 +69,7 @@
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/allHistory"
+                    android:id="@+id/historyAll"
                     android:layout_marginTop="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

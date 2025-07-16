@@ -12,9 +12,10 @@ export class TransactionService {
         private transactionRepo: Repository<TransactionEntity>
     ) {}
 
-    async findAll(): Promise<{ transaction: TransactionEntity[] }> {
+    async findAll(user_id: number): Promise<{ transaction: TransactionEntity[] }> {
         const transaction = await this.transactionRepo.find({
-            relations: ['user', 'product']
+            relations: ['user', 'product'],
+            where: [{ user_id: user_id }]
         });
 
         return {
@@ -41,7 +42,7 @@ export class TransactionService {
 
     async findOne(id: number): Promise<{ transaction: TransactionEntity | null }> {
         const transaction = await this.transactionRepo.findOne({
-            relations: ['user', 'product'],
+            relations: ['user', 'product', 'product.category'],
             where: { id: id }
         });
 
