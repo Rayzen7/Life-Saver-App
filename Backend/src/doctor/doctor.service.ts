@@ -24,7 +24,6 @@ export class DoctorService {
             name: data.name,
             desc: data.desc,
             no_phone: data.no_phone,
-            price: data.price
         });
 
         const doctor = await this.doctorRepo.save(newDoctor);
@@ -67,7 +66,6 @@ export class DoctorService {
             name: data.name,
             desc: data.desc,
             no_phone: data.no_phone,
-            price: data.price
         })
 
         const newDoctor = await this.doctorRepo.findOne({

@@ -32,6 +32,7 @@ class MainHome : AppCompatActivity() {
                 R.id.nav_home -> HomeFragment()
                 R.id.nav_news -> NewsFragment()
                 R.id.nav_history -> HistoryFragment()
+                R.id.nav_account -> UserFragment()
                 else -> null
             }
 

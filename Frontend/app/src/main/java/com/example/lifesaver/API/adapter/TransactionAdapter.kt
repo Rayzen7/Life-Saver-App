@@ -28,7 +28,7 @@ class TransactionAdapter(private val transaction: List<Transaction>, private val
         val transactionItem = transaction[position]
         holder.name.text = transactionItem.product.getString("name");
         holder.createdAt.text = transactionItem.created_at.toString();
-        holder.price.text = "-" + Helper.formatRupiah(transactionItem.total);
+        holder.price.text = "-" + Helper.formatRupiah(transactionItem.total + 5000);
 
         holder.historyBtn.setOnClickListener() {
             onItemClick(transactionItem)

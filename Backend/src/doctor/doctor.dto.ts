@@ -10,7 +10,4 @@ export class DoctorDto {
 
     @IsNotEmpty()
     no_phone: number
-
-    @IsNotEmpty()
-    price: number
 }

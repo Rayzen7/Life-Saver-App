@@ -15,9 +15,6 @@ export class DoctorEntity {
     @Column('bigint')
     no_phone: number
 
-    @Column('bigint')
-    price: number
-
     @CreateDateColumn()
     created_at: Date
 

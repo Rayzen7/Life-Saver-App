@@ -43,7 +43,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:orientation="vertical"
