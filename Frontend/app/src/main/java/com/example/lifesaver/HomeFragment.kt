@@ -34,6 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var homeName: TextView
     private lateinit var drugBtn: ImageView
+    private lateinit var consultationBtn: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,9 +47,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         homeName = view.findViewById(R.id.homeName)
         drugBtn = view.findViewById(R.id.drugBtn)
+        consultationBtn = view.findViewById(R.id.consultationBtn)
 
-        drugBtn.setOnClickListener {
+        drugBtn.setOnClickListener() {
             val intent = Intent(requireContext(), ProductAll::class.java)
+            startActivity(intent)
+        }
+
+        consultationBtn.setOnClickListener() {
+            val intent = Intent(requireContext(), MainDoctor::class.java)
             startActivity(intent)
         }
 

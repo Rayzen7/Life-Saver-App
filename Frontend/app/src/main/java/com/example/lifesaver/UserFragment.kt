@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +21,12 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
 class UserFragment : Fragment(R.layout.fragment_user) {
+    private lateinit var userName: TextView
+    private lateinit var userEmail: TextView
+    private lateinit var userPhone: TextView
+    private lateinit var userNik: TextView
+    private lateinit var userCreated: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,11 +34,17 @@ class UserFragment : Fragment(R.layout.fragment_user) {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user, container, false)
         val logout = view?.findViewById<Button>(R.id.logoutBtn)
+        userName = view.findViewById(R.id.userName)
+        userEmail = view.findViewById(R.id.userEmail)
+        userPhone = view.findViewById(R.id.userPhone)
+        userNik = view.findViewById(R.id.userNik)
+        userCreated = view.findViewById(R.id.userCreated)
 
         logout?.setOnClickListener() {
             handleLogout()
         }
 
+        getUser()
         return  view
     }
 
@@ -51,6 +65,26 @@ class UserFragment : Fragment(R.layout.fragment_user) {
                         startActivity(intent)
                         requireActivity().finish()
                     }, 2000)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun getUser() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val token = MySharedPreference.getToken(requireContext())
+                val response = HttpHandler().request("/auth/me", "GET", token)
+
+                val body = JSONObject(response.body).getJSONObject("user")
+                withContext(Dispatchers.Main) {
+                    userName.text = body.getString("username")
+                    userEmail.text = body.getString("email")
+                    userPhone.text = body.optString("phone", "-")
+                    userNik.text = body.optString("nik", "-")
+                    userCreated.text = body.getString("created_at").substring(0, 10)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

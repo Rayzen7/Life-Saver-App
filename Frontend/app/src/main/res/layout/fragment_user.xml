@@ -31,6 +31,7 @@
             android:src="@drawable/user_icon"/>
 
         <TextView
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
@@ -41,6 +42,7 @@
 
 
         <TextView
+            android:id="@+id/userEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -81,6 +83,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/userPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -119,6 +122,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/userNik"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -157,6 +161,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/userCreated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"

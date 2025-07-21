@@ -34,6 +34,7 @@
         <activity android:name=".MainTransactionPayment"/>
         <activity android:name=".SuccessTransaction"/>
         <activity android:name=".DetailHistory"/>
+        <activity android:name=".MainDoctor"/>
     </application>
 
 </manifest>

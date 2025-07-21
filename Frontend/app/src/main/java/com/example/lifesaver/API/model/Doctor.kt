@@ -1,9 +1,8 @@
 package com.example.lifesaver.api.model
 
 data class Doctor(
-    val id: Number,
+    val id: Int,
     val name: String,
     val desc: String,
-    val no_hp: Number,
-    val price: Number,
+    val no_phone: Any,
 )
