@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
                 android:text="Tingkatkan Layanan Kesehatan Masyarakat, Pemdakab Bogor Gelar Rakor Kesmas"
                 android:textSize="12sp"
                 android:justificationMode="inter_word"/>

@@ -22,7 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:strokeWidth="0dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:backgroundTint="@color/white">
 
             <ImageView
                 android:id="@+id/productImage"
@@ -67,6 +68,7 @@
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="Buy"
+            android:textColor="@color/white"
             android:textSize="14sp"
             app:cornerRadius="12dp"
             tools:ignore="TouchTargetSizeCheck"

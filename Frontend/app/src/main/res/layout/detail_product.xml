@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:ignore="SpeakableTextPresentCheck"
-    android:background="@color/black">
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:id="@+id/backgroundProductDetail"
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="120dp">
+            android:paddingBottom="150dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,7 +164,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="8dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -320,12 +321,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="20dp">
+            android:paddingBottom="30dp">
 
             <ImageView
                 android:id="@+id/detailProductCart"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:src="@drawable/cart_border_icon"/>
 
             <View
@@ -338,10 +339,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Buy Now"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 app:cornerRadius="8dp"
+                android:textColor="@color/white"
                 android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
+                android:paddingVertical="8dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:backgroundTint="@color/primary"/>
 

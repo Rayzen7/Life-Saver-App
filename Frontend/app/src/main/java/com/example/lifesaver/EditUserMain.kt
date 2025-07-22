@@ -22,7 +22,6 @@ import org.json.JSONObject
 class EditUserMain : AppCompatActivity() {
     private lateinit var editUserBack: ImageView
     private lateinit var nameEdit: EditText
-    private lateinit var passwordEdit: EditText
     private lateinit var emailEdit: EditText
     private lateinit var phoneEdit: EditText
     private lateinit var nikEdit: EditText
@@ -38,7 +37,6 @@ class EditUserMain : AppCompatActivity() {
         editBtn = findViewById(R.id.editBtn)
 
         nameEdit = findViewById(R.id.nameEdit)
-        passwordEdit = findViewById(R.id.passwordEdit)
         emailEdit = findViewById(R.id.emailEdit)
         phoneEdit = findViewById(R.id.phoneEdit)
         nikEdit = findViewById(R.id.nikEdit)
@@ -80,7 +78,6 @@ class EditUserMain : AppCompatActivity() {
             try {
                 val json = JSONObject().apply {
                     put("username", nameEdit.text.toString())
-                    put("password", passwordEdit.text.toString())
                     put("email", emailEdit.text.toString())
                     put("phone", phoneEdit.text.toString())
                     put("nik", nikEdit.text.toString())

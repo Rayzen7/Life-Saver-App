@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,16 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         val view = inflater.inflate(R.layout.fragment_history, container, false)
         historyRecyclerView = view.findViewById(R.id.historyAll)
         historyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val searchEditText = view.findViewById<EditText>(R.id.searchEditText)
+        val bottomNav = requireActivity().findViewById<View>(R.id.bottomNavigationView)
+
+        searchEditText.setOnFocusChangeListener {_, hasFocus ->
+            if (hasFocus) {
+                bottomNav.visibility = View.GONE
+            } else {
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
 
         fetchHistory()
         return view

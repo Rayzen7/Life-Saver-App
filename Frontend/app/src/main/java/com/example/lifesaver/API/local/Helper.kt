@@ -20,7 +20,8 @@ object Helper {
     }
 
     object ImageHelper {
-        private const val BASE_URL = "http://10.0.2.2:3000/uploads/"
+//        private const val BASE_URL = "http://10.0.2.2:3000/uploads/"
+        private const val BASE_URL = "https://lifesaver-backend.setionugraha.my.id/uploads/"
 
         fun loadImageFromUrl(imageView: ImageView, filename: String) {
             thread {

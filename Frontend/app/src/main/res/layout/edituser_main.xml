@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,36 +88,8 @@
                     android:paddingVertical="12dp"
                     android:inputType="text"
                     android:textSize="12sp"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/hint_color"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:boxCornerRadiusBottomEnd="10dp"
-                android:hint="Password"
-                android:textColorHint="@color/hint_color"
-                app:boxStrokeWidth="2dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:theme="@style/CustomTextInputStyle"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                android:layout_marginTop="20dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingVertical="12dp"
-                android:inputType="text"
-                android:textSize="12sp"
-                android:textColorHint="@color/hint_color"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,6 +117,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:paddingVertical="12dp"
                     android:inputType="text"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textColorHint="@color/hint_color"/>
 
@@ -171,6 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
                     android:paddingVertical="12dp"
                     android:inputType="text"
                     android:textSize="12sp"
@@ -200,6 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
                     android:paddingVertical="12dp"
                     android:inputType="text"
                     android:textSize="12sp"

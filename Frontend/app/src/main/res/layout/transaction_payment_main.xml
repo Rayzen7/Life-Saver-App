@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -160,7 +162,7 @@
         android:background="@drawable/rounded_top_white"
         android:elevation="10dp"
         android:paddingHorizontal="22dp"
-        android:paddingVertical="40dp">
+        android:paddingVertical="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -266,7 +268,7 @@
             android:backgroundTint="@color/primary"
             android:text="Buy"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:paddingVertical="6dp"
             android:textColor="@color/white"/>
 

@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
 
     <View
         android:layout_width="match_parent"
@@ -74,6 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Transaction Success"
                     android:layout_marginLeft="4dp"
                     android:fontFamily="@font/poppins_semibold"
@@ -136,6 +138,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp. 15.000"
+                            android:textColor="@color/black"
                             android:fontFamily="@font/poppins_semibold"
                             android:textSize="16sp"/>
 
@@ -192,6 +195,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp. 5.000"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"/>
 
@@ -227,6 +231,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp. 20.000"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"/>
 
