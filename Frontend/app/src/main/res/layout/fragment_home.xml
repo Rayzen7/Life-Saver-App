@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/primary"
-            android:paddingTop="40dp"
+            android:paddingTop="20dp"
             android:paddingHorizontal="12dp"
             android:paddingBottom="90dp">
 
