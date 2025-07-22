@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
 
     <FrameLayout
         android:id="@+id/container"
@@ -23,7 +24,7 @@
         app:itemIconTint="@color/nav_item_background"
         app:itemTextColor="@color/nav_item_background"
         app:itemBackground="@android:color/transparent"
-        app:itemIconSize="24dp"
+        app:itemIconSize="20dp"
         app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"/>
 
 </LinearLayout>

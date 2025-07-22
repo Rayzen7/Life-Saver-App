@@ -7,7 +7,8 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainOnboarding">
+    tools:context=".MainOnboarding"
+    android:fitsSystemWindows="true">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/boardingPager"

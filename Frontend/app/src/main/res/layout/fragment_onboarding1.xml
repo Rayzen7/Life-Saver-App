@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:paddingHorizontal="50dp"
-    android:fitsSystemWindows="true">
+>
 
     <ImageView
         android:layout_width="230dp"
