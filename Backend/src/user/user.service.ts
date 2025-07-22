@@ -63,21 +63,6 @@ export class UserService {
     }
 
     async update(id: number, data: Partial<UserDto>): Promise<{ message: string, user: UserEntity | null }> {
-        const existingUser = await this.userRepo.findOne({
-            where: [{ email: data.email }]
-        });
-
-        if (existingUser) {
-            throw new HttpException(
-              {
-                statusCode: 422,
-                message: 'Email already used',
-                error: 'Unprocessable Entity',
-              },
-              422,
-            );
-        }
-
         if (data.password) {
             data.password = await bcrypt.hash(data.password, 10);
         }

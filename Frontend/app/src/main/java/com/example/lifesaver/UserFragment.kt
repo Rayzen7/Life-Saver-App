@@ -33,15 +33,22 @@ class UserFragment : Fragment(R.layout.fragment_user) {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user, container, false)
-        val logout = view?.findViewById<Button>(R.id.logoutBtn)
+        val logout = view.findViewById<Button>(R.id.logoutBtn)
+        val editUserBtn = view.findViewById<Button>(R.id.editUserBtn)
+
         userName = view.findViewById(R.id.userName)
         userEmail = view.findViewById(R.id.userEmail)
         userPhone = view.findViewById(R.id.userPhone)
         userNik = view.findViewById(R.id.userNik)
         userCreated = view.findViewById(R.id.userCreated)
 
-        logout?.setOnClickListener() {
+        logout.setOnClickListener() {
             handleLogout()
+        }
+
+        editUserBtn.setOnClickListener() {
+            val intent = Intent(requireContext(), EditUserMain::class.java)
+            startActivity(intent)
         }
 
         getUser()

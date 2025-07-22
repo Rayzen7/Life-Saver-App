@@ -3,6 +3,9 @@ import { IsEmail, IsEnum, IsNotEmpty, IsOptional, MinLength, IsNumber } from "cl
 import { UserRole } from "./user.entity";
 
 export class UserDto {
+    @IsOptional()
+    id: number;
+
     @IsNotEmpty()
     username: string;
     

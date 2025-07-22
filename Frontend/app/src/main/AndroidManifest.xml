@@ -35,6 +35,7 @@
         <activity android:name=".SuccessTransaction"/>
         <activity android:name=".DetailHistory"/>
         <activity android:name=".MainDoctor"/>
+        <activity android:name=".EditUserMain"/>
     </application>
 
 </manifest>

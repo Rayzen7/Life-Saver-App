@@ -40,12 +40,10 @@ export class UserController {
 
     @Put('/:id')
     @HttpCode(200)
+    @UseGuards(JwtAuthGuard)
     async update(@Param('id') id: number, @Body() data: Partial<UserDto>) {
         const user = await this.userService.update(id, data);
-        return {
-            message: "Update User Success",
-            user: user,
-        }
+        return user;
     }
 
     @Delete('/:id')

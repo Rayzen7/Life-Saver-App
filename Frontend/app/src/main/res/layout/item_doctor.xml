@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Dokter yang sangat berbakat dan profesional di dunia medis dalam menangani banyak pasien."
-                android:textSize="10sp"
+                android:textSize="8sp"
                 android:justificationMode="inter_word"/>
 
             <com.google.android.material.button.MaterialButton
